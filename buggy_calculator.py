@@ -28,8 +28,8 @@ def calculate_total(numbers):
     total = 0
     for num in numbers:
         total += num
-    # バグ: return文がない（Noneが返される）
-    # return total
+    # 合計値を返す
+    return total
 
 def get_user_age():
     """ユーザーの年齢を取得する"""
