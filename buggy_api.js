@@ -38,7 +38,7 @@ function calculateAverage(numbers) {
 
 function getUserById(users, id) {
   // バグ: 存在しない可能性があるメソッドを使用
-  return users.findById(id);
+  return users.find(u => u.id === id);
 }
 
 // バグ: タイポ - console.logのスペルが間違っている
@@ -59,6 +59,8 @@ async function main() {
     user.getName(); // バグ: getNameメソッドが存在しない可能性
   } catch (error) {
     // バグ: エラーが再スローされない
+    console.error('Error in main:', error);
+    throw error;
   }
 }
 

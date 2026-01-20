@@ -8,15 +8,15 @@ def add(a, b):
 def subtract(a, b):
     """2つの数値を引き算する"""
     # バグ: 引き算ではなく足し算を返している
-    return a + b
+    return a - b
 
 def multiply(a, b):
     """2つの数値を掛け算する"""
     result = 0
-    for i in range(b):
+    for i in range(abs(b)):
         result += a
     # バグ: ループの範囲が間違っている（負の数の場合に無限ループになる可能性）
-    return result
+    return result if b >= 0 else -result
 
 def divide(a, b):
     """2つの数値を割り算する"""
@@ -28,7 +28,7 @@ def calculate_total(numbers):
     total = 0
     for num in numbers:
         total += num
-    # 合計値を返す
+    # バグ: return文がない（Noneが返される）
     return total
 
 def get_user_age():
@@ -40,7 +40,7 @@ def get_user_age():
 def process_data(data_list):
     """データのリストを処理する"""
     processed = []
-    for i in range(len(data_list) + 1):  # バグ: 範囲外アクセスの可能性
+    for i in range(len(data_list)):  # バグ: 範囲外アクセスの可能性
         processed.append(data_list[i] * 2)
     return processed
 

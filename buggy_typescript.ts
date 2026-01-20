@@ -39,7 +39,7 @@ class UserService {
   deleteUser(id: number): boolean {
     // バグ: 型エラー - indexOfの結果を適切にチェックしていない
     const index = this.users.indexOf(this.users.find(u => u.id === id));
-    if (index > 0) { // バグ: index === -1の場合を考慮していない（>= 0 とすべき）
+    if (index >= 0) { // バグ: index === -1の場合を考慮していない（>= 0 とすべき）
       this.users.splice(index, 1);
       return true;
     }
