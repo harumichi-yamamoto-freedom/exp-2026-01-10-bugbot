@@ -18,12 +18,15 @@ class UserService {
     this.users.push(user);
   }
 
-  getUser(id: number): User {
+  getUser(id: number): User | undefined {
     return this.users.find(u => u.id === id);
   }
 
   updateUser(id: number, updates: Partial<User>): void {
     const user = this.users.find(u => u.id === id);
+    if (!user) {
+      throw new Error("User not found");
+    }
     Object.assign(user, updates);
   }
 
@@ -43,7 +46,7 @@ function processNumber(value: string): number {
 
 function divide(a: number, b: number) {
   if (b === 0) {
-    return;
+    throw new Error("Cannot divide by zero");
   }
   return a / b;
 }
@@ -53,7 +56,8 @@ const service = new UserService();
 
 service.addUser({
   id: 1,
-  name: "John Doe"
+  name: "John Doe",
+  email: "john.doe@example.com"
 } as User);
 
 const user = service.getUser(999);

@@ -5,12 +5,11 @@ def subtract(a, b):
     return a - b
 
 def multiply(a, b):
-    result = 0
-    for i in range(abs(b)):
-        result += a
-    return result if b >= 0 else -result
+    return a * b
 
 def divide(a, b):
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
     return a / b
 
 def calculate_total(numbers):
