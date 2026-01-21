@@ -20,6 +20,9 @@ function processUserList(users) {
 }
 
 function calculateAverage(numbers) {
+  if (numbers.length === 0) {
+    return 0;
+  }
   let sum = 0;
   for (let num of numbers) {
     sum += num;
@@ -42,7 +45,7 @@ async function main() {
     console.log(result);
     
     const user = getUserById(users, 1);
-    user.getName();
+    user.name;
   } catch (error) {
     console.error('Error in main:', error);
     throw error;
