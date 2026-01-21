@@ -20,7 +20,7 @@ def calculate_total(numbers):
 
 def get_user_age():
     age = input("年齢を入力してください: ")
-    return age
+    return int(age)
 
 def process_data(data_list):
     processed = []
